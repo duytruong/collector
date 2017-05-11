@@ -8,12 +8,8 @@ defmodule Collector.Application do
   defp poolboy_config do
     [{:name, {:local, :kafka_workers}},
      {:worker_module, Collector.Worker},
-     {:size, 100},
-     {:max_overflow, 50}]
-  end
-
-  def start do
-    Collector.Application.start("","")
+     {:size, 500},
+     {:max_overflow, 0}]
   end
 
   def start(_type, _args) do
