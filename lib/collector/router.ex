@@ -7,7 +7,8 @@ defmodule Collector.Router do
 
   def call(conn, _opts) do
     conn = fetch_query_params(conn)
-    :poolboy.transaction(:kafka_workers, fn(pid) -> Collector.Worker.produce(pid, "#{inspect conn.query_params}") end)
+    query_params = conn.query_params
+    :poolboy.transaction(:kafka_workers, fn(pid) -> Collector.Worker.produce(pid, query_params) end)
     conn
     |> put_resp_content_type("text/plain")
     |> send_resp(200, "OK")

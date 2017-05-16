@@ -1,0 +1,13 @@
+{
+    "fields": [
+        { "name": "metric", "type": "string" },
+        { "name": "uuid", "type": "string" },
+        { "name": "location", "type": "string" },
+        { "name": "referrer", "type": "string" },
+        { "name": "url", "type": "string" },
+        { "name": "product", "type": "string" },
+        { "name": "video", "type": "string" }
+    ],
+    "name": "clickevent",
+    "type": "record"
+}

@@ -21,7 +21,8 @@ defmodule Collector.Application do
       # worker(Collector.Worker, [arg1, arg2, arg3]),
       #worker(Collector.Worker, []),
       Plug.Adapters.Cowboy.child_spec(:http, Collector.Router, [], port: 4000),
-      :poolboy.child_spec(:kafka_workers, poolboy_config(), [])
+      :poolboy.child_spec(:kafka_workers, poolboy_config(), []),
+      worker(Collector.AvroEncoder, [])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
