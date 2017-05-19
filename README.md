@@ -14,5 +14,6 @@ See [config/config.exs](https://github.com/duytruong/collector/blob/master/confi
 See [Raising the Maximum Number of File Descriptors](https://underyx.me/2015/05/18/raising-the-maximum-number-of-file-descriptors) if you have a problem when create too many workers in pool.
 
 ## TODO
+
 - [ ] Produce messages in batch
 - [ ] Deployment guide
