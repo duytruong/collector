@@ -8,7 +8,8 @@
         { "name": "product", "type": "string" },
         { "name": "video", "type": "string" },
         { "name": "viewer", "type": "int" },
-        { "name": "order", "type": "int" }
+        { "name": "order", "type": "int" },
+        { "name": "ts", "type": "long" }
     ],
     "name": "orderevent",
     "type": "record"

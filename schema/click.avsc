@@ -6,7 +6,8 @@
         { "name": "referrer", "type": "string" },
         { "name": "url", "type": "string" },
         { "name": "product", "type": "string" },
-        { "name": "video", "type": "string" }
+        { "name": "video", "type": "string" },
+        { "name": "ts", "type": "long" }
     ],
     "name": "clickevent",
     "type": "record"

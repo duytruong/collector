@@ -22,32 +22,36 @@ defmodule Collector.Worker do
   #TODO: create a function generates a list of 2-tuples so that we can check field exist or not
 
   def create_avro_message("click", encoder, data) do
+    current_timestamp = System.system_time(:millisecond)
     :erlang.iolist_to_binary(encoder.("clickevent",
       [{<<"metric">>, <<data["metric"]::binary>>}, {<<"uuid">>, <<data["uuid"]::binary>>},
        {<<"location">>, <<data["location"]::binary>>}, {<<"referrer">>, <<data["referrer"]::binary>>},
        {<<"url">>, <<data["url"]::binary>>}, {<<"product">>, <<data["product"]::binary>>},
-       {<<"video">>, <<data["video"]::binary>>} ]))
+       {<<"video">>, <<data["video"]::binary>>}, {<<"ts">>, current_timestamp} ]))
   end
 
   def create_avro_message("order", encoder, data) do
+    current_timestamp = System.system_time(:millisecond)
     viewer = if data["viewer"] do String.to_integer(data["viewer"]) else -1 end
     order = if data["order"] do String.to_integer(data["order"]) else -1 end
     :erlang.iolist_to_binary(encoder.("orderevent",
       [{<<"metric">>, <<data["metric"]::binary>>}, {<<"uuid">>, <<data["uuid"]::binary>>},
        {<<"location">>, <<data["location"]::binary>>}, {<<"referrer">>, <<data["referrer"]::binary>>},
        {<<"url">>, <<data["url"]::binary>>}, {<<"product">>, <<data["product"]::binary>>},
-       {<<"video">>, <<data["video"]::binary>>}, {<<"viewer">>, viewer}, {<<"order">>, order} ]))
+       {<<"video">>, <<data["video"]::binary>>}, {<<"viewer">>, viewer}, {<<"order">>, order},
+       {<<"ts">>, current_timestamp} ]))
   end
 
   @doc """
   Encode message in Avro format, if a field in message is not exist, -1 will be used in output.
   """
   def create_avro_message("pageview", encoder, data) do
+    current_timestamp = System.system_time(:millisecond)
     viewer = if data["viewer"] do String.to_integer(data["viewer"]) else -1 end
     :erlang.iolist_to_binary(encoder.("pageviewevent",
       [{<<"metric">>, <<data["metric"]::binary>>}, {<<"uuid">>, <<data["uuid"]::binary>>},
        {<<"location">>, <<data["location"]::binary>>}, {<<"referrer">>, <<data["referrer"]::binary>>},
        {<<"url">>, <<data["url"]::binary>>}, {<<"product">>, <<data["product"]::binary>>},
-       {<<"video">>, <<data["video"]::binary>>}, {<<"viewer">>, viewer} ]))
+       {<<"video">>, <<data["video"]::binary>>}, {<<"viewer">>, viewer}, {<<"ts">>, current_timestamp} ]))
   end
 end
