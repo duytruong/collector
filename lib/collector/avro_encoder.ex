@@ -6,9 +6,10 @@ defmodule Collector.AvroEncoder do
     end
 
     def init(_arg) do
-      click_store = :avro_schema_store.new([], ["schema/click.avsc"])
-      order_store = :avro_schema_store.new([], ["schema/order.avsc"])
-      view_store = :avro_schema_store.new([], ["schema/pageview.avsc"])
+      path_to_schema = Application.app_dir(:collector, "priv/schema//")
+      click_store = :avro_schema_store.new([], [path_to_schema <> "click.avsc"])
+      order_store = :avro_schema_store.new([], [path_to_schema <> "order.avsc"])
+      view_store = :avro_schema_store.new([], [path_to_schema <> "pageview.avsc"])
       click_encoder = :avro.make_encoder(click_store, [])
       order_encoder = :avro.make_encoder(order_store, [])
       view_encoder = :avro.make_encoder(view_store, [])

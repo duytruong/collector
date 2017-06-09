@@ -33,6 +33,7 @@ defmodule Collector.Mixfile do
      {:cowboy, "~> 1.1"},
      {:kafka_ex, "~> 0.6.5"},
      {:poolboy, "~> 1.5"},
-     {:erlavro, github: "klarna/erlavro"}]
+     {:erlavro, github: "klarna/erlavro"},
+     {:distillery, "~> 1.4"}]
   end
 end
