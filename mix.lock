@@ -1,7 +1,7 @@
 %{"cowboy": {:hex, :cowboy, "1.1.2", "61ac29ea970389a88eca5a65601460162d370a70018afe6f949a29dca91f3bb0", [:rebar3], [{:cowlib, "~> 1.0.2", [hex: :cowlib, optional: false]}, {:ranch, "~> 1.3.2", [hex: :ranch, optional: false]}]},
   "cowlib": {:hex, :cowlib, "1.0.2", "9d769a1d062c9c3ac753096f868ca121e2730b9a377de23dec0f7e08b1df84ee", [:make], []},
   "eavro": {:git, "https://github.com/sifoxdevteam/eavro.git", "86c15327f10455ce93746dbf03d3e07c0acbea77", [tag: "v0.0.3"]},
-  "erlavro": {:git, "https://github.com/klarna/erlavro.git", "06c969253692624cbf19df2cb08fda1a5be2da4c", []},
+  "erlavro": {:git, "https://github.com/klarna/erlavro.git", "147c7a3939eff103f7a409180fb30bfa4c8bff7c", []},
   "ex_avro": {:hex, :ex_avro, "0.2.0", "0f8327013d0103edd6710b476033c655124e5f45243d4de0d8e144994697a185", [:mix], []},
   "jsone": {:git, "https://github.com/sile/jsone", "e533179d651cc356556bbe5e4b7caddb0919d593", [tag: "1.4.3"]},
   "jsx": {:git, "https://github.com/talentdeficit/jsx.git", "d011411c23e9f8c29d98aa1b7a50ddf9709b6a60", [tag: "v1.4.5"]},
